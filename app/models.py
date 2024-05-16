@@ -4,4 +4,4 @@ from django.contrib.auth.models import User
 
 class WatchList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watchlists')
-    stock_symbol = models.CharField(max_length=10)
+    stock_symbol = models.CharField(max_length=10, unique=True)

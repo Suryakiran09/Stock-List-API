@@ -46,7 +46,7 @@ class WatchListDetailView(generics.RetrieveUpdateDestroyAPIView):
         return WatchList.objects.filter(user=self.request.user)
 
 def get_stock_data(symbols):
-    base_url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=5min&apikey=P3Z7LTXRP46PHSY6&symbol='
+    base_url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=5min&apikey=FCFGTMEA43XTV09J&symbol='
     stock_data = defaultdict(lambda: {'data': []})
 
     for symbol in symbols:
@@ -78,5 +78,4 @@ class StockDataView(generics.GenericAPIView):
     def get(self, request, *args, **kwargs):
         user_watchlist = WatchList.objects.filter(user=request.user).values_list('stock_symbol', flat=True)
         stock_data = get_stock_data(user_watchlist)
-        print(stock_data)
         return Response(stock_data, status=status.HTTP_200_OK)
