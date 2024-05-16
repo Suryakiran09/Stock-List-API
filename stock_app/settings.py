@@ -160,10 +160,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-<<<<<<< HEAD
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=======
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
->>>>>>> ef7e3fa250dc8e4aebc9b0f453f645c4510edbf8

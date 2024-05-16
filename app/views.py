@@ -53,6 +53,7 @@ def get_stock_data(symbols):
         url = base_url + symbol
         response = requests.get(url)
         data = response.json()
+        print(data)
 
         if 'Time Series (5min)' in data:
             time_series = data['Time Series (5min)']
@@ -77,4 +78,5 @@ class StockDataView(generics.GenericAPIView):
     def get(self, request, *args, **kwargs):
         user_watchlist = WatchList.objects.filter(user=request.user).values_list('stock_symbol', flat=True)
         stock_data = get_stock_data(user_watchlist)
+        print(stock_data)
         return Response(stock_data, status=status.HTTP_200_OK)
