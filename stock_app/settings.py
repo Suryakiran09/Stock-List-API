@@ -68,6 +68,8 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:*',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 ROOT_URLCONF = 'stock_app.urls'
 
 TEMPLATES = [
